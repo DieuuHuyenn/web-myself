@@ -1,0 +1,980 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --second-bg-color: #ffffff;
+    --text-color: black;
+    --main-color: #71c92ada;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 10%;
+    background: rgba(0, 76, 240, 0.568);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    transition: padding 0.3s ease;
+}
+
+.logo {
+    font-size: 3rem;
+    color: black;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--text-color);
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+    
+    .header {
+        padding: 1.5rem 5%;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+
+    .header {
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .navbar a {
+        font-size: 1.6rem;
+    }
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;/*căn chỉnh giữa*/
+    gap: 15rem;
+}
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    justify-content: center;
+    margin-top: 16rem;
+}
+
+
+span{
+    color: var(--main-color);
+}
+.logo span{
+    color: var(--main-color);
+}
+.home-content h3{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+
+}
+.home-content h1 {
+    font-size: 9rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.home-content p{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.socical-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--text-color);
+    margin: 3rem 1.5rem 3rem 0;
+   transition: 0.3s ease-in-out;
+}
+.socical-icons a:hover{
+    color: var(--text-color);
+    transform: scale(1.3)translateY(-5px); 
+    background-color:  var(--main-color); 
+}
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);/*màu nút*/
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius: 4rem; /*tròn viền khung*/
+    font-size: 1.6rem;
+    color: black;
+    border: 2px solid transparent ;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.btn:hover{
+    transform: scale(1.05); /*hiệu ứng nút*/
+    box-shadow: 0 0 50px var(--main-color);
+}
+.btn-group{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 5rem;
+}
+.btn-group a:nth-of-type(1){
+    background-color: white;
+    color: var(--main-color);
+    border: 2px solid var(--main-color); /*viền khung*/
+    box-shadow: 0 0 25px var(--main-color);
+}
+/*HIỆU ỨNG CHẠY CHỮ*/
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: "web Developer";
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+/*HIỆU ỨNG CHẠY CHỮ*/
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%,
+    20% {
+        content: "Frontend Designer";
+    }
+    21%,
+    40% {
+        content: "web Designer";
+    }
+    41%,
+    60% {
+        content: "UI / UX Designer";
+    }
+    61%,
+    80% {
+        content: "web Developer";
+    }
+    81%,
+    100% {
+        content: "Software Engineer";
+    }
+}
+
+@keyframes typing {
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}/*HIỆU ỨNG CHẠY CHỮ*/
+/* ===================================================about=================================================================*/
+
+.about {
+    padding: 3rem 0;
+    background-color:var(--second-bg-color);
+}
+
+.heading h2 {
+    margin-top: 150px;
+    font-size: 6rem;/* Increased font size */
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #333;
+}
+
+.heading span {
+    display: block;
+    font-size: 1.8rem; /* Increased font size */
+    font-weight: 300;
+    text-align: center;
+    color: var(--main-color);
+    margin-top: 0.5rem;
+}
+
+.about-contai {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-img img:hover {
+    transform: scale(1.05);
+}
+
+.about-text p {
+    font-size: 1.5rem; /* Increased font size */
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: justify;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.information {
+    margin: 1rem 0 1.4rem;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.information .info-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 1.2rem; /* Increased padding */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.information .info-box:hover {
+    background-color: #f0f0f0;
+}
+
+.information .info-box .bx {
+    font-size: 34px; /* Increased font size */
+    color: #007bff;
+}
+
+.information .info-box span {
+    font-weight: 500;
+    font-size: 1.5rem; /* Increased font size */
+    margin-left: 1rem;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.9rem 1.7rem; /* Increased padding */
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.4rem; /* Increased font size */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* =============================================== */
+
+/* Điều chỉnh kích thước font chữ và khoảng cách */
+.heading {
+    font-size: 6rem; /* Giảm kích thước font chữ xuống 6rem */
+    text-align: center;
+    margin: 3rem 0; /* Giảm khoảng cách top và bottom xuống 3rem */
+}
+
+.education {
+    padding: 8rem 15px; /* Giảm padding xuống 8rem */
+    margin-top: 20rem; /* Điều chỉnh lại margin-top phù hợp */
+    background: var(--second-bg-color);
+}
+
+.education h2 {
+    font-size: 6rem; /* Giảm font-size xuống 3.5rem */
+    text-align: center;
+    margin-bottom: 3rem; /* Giảm margin-bottom xuống 3rem */
+}
+
+.timeline-items {
+    max-width: 100%; /* Tối đa chiều rộng là 100% */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.timeline-items::before {
+    content: "";
+    position: absolute;
+    width: 3px; /* Điều chỉnh lại độ rộng của đường dọc */
+    height: calc(100% - 80px); /* Điều chỉnh lại chiều cao cho phù hợp */
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px; /* Điều chỉnh vị trí top */
+}
+
+.timeline-item {
+    width: 50%;
+    padding: 20px; /* Thay đổi padding cho phù hợp */
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    text-align: right;
+}
+
+.timeline-dot {
+    height: 18px; /* Điều chỉnh lại chiều cao và kích thước */
+    width: 18px; /* Điều chỉnh lại chiều rộng và kích thước */
+    background-color: var(--main-color);
+    box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-size: 1.4rem; /* Giảm font-size xuống 1.4rem */
+    font-weight: 700;
+    color: black;
+    margin: 4px 0 10px; /* Điều chỉnh margin cho phù hợp */
+}
+
+.timeline-content {
+    background-color: var(--bg-color);
+    border: 3px solid var(--main-color);
+    padding: 20px;
+    border-radius: 1.5rem; /* Giảm border-radius xuống 1.5rem */
+    box-shadow: 0 0 8px var(--main-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: scale(1.03); /* Thay đổi scale khi hover */
+    box-shadow: 0 0 20px var(--main-color); /* Thay đổi shadow khi hover */
+}
+
+.timeline-content h3 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 0.8rem; /* Điều chỉnh margin-bottom cho phù hợp */
+    font-weight: 500;
+}
+
+.timeline-content p {
+    color: black;
+    font-size: 1.4rem; /* Giảm font-size xuống 1.4rem */
+    font-weight: 300;
+    line-height: 2rem;
+}
+
+/* Hiệu ứng hover cho icon */
+.socical-icons a i:hover {
+    transform: scale(1.2); /* Thay đổi scale khi hover */
+}
+
+/* Hiệu ứng hover cho nút */
+.btn-group .btn:hover {
+    background-color: var(--main-color);
+    color: black;
+}
+/* ====================================================================================================================*/
+
+
+
+.timeline-content {
+    position: relative;
+    padding-bottom: 6rem; /* Increased space for the image */
+}
+
+.timeline-bottom,
+.timeline-bottom2 {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.timeline-bottom {
+    right: 10PX; /* Align to the right */
+}
+
+.timeline-bottom2 {
+    left: 0; /* Align to the left */
+}
+
+.timeline-bottom img,
+.timeline-bottom2 img {
+    max-width: 80px; /* Reduced size for smaller screens */
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Increased shadow for more depth */
+}
+
+/* Base styles for larger screens */
+.services {
+    background: var(--bg-color);
+    color: black;
+    padding: 3rem 0; /* Added padding for better spacing */
+}
+
+.services h2 {
+    margin-top: 16rem;
+    margin-bottom: 4rem;
+    color: black;
+    text-align: center;
+    font-size: 6rem; /* Adjusted font size */
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.services-box {
+    background-color: var(--main-color);
+    height: 320px; /* Slightly increased height */
+    border-radius: 2rem; /* Rounded corners */
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}
+
+.services-box:hover {
+    background: white;
+    color: black;
+    border: 5px solid var(--main-color);
+    transform: scale(1.05); /* Increased scale for more emphasis */
+}
+
+.services-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-height: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem; /* Adjusted padding for better text alignment */
+}
+
+.services-info h4 {
+    font-size: 2.8rem; /* Adjusted font size for better readability */
+    font-weight: 800;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+.services-info p {
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: 600;
+    max-height: 100px;
+    line-height: 1.6;
+    margin-top: 1rem; /* Added margin */
+}
+
+/* Container style */
+.container {
+    width: 90%; /* Increased width for better layout */
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem; /* Added padding for responsiveness */
+}
+
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+
+    .services-info {
+        padding: 2rem; /* Reduced padding for smaller screens */
+    }
+
+    .services-info h4 {
+        font-size: 2rem; /* Adjusted font size */
+    }
+
+    .services-info p {
+        font-size: 1.4rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .services-info {
+        padding: 1rem; /* Further reduced padding */
+    }
+
+    .services-info h4 {
+        font-size: 1.8rem; /* Further adjusted font size */
+    }
+
+    .services-info p {
+        font-size: 1.2rem; /* Further adjusted font size */
+    }
+}
+
+/* ====================================================================================================================*/
+.testimonials {
+    background: var(--second-bg-color);
+}
+
+.testimonials-box {
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.testimonials .heading {
+    margin-bottom: 5rem;
+}
+
+.testimonials-box img {
+    width: 15rem;
+    border-radius: 50%; /* Circular image */
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+    gap: 3rem; /* Spacing between items */
+}
+
+.testimonials-item {
+    min-height: 550px;
+    max-width: 450px;
+    background:  rgba(0, 76, 240, 0.568);
+    border: 3px solid rgb(180, 177, 180);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 30px 60px; /* Padding inside the box */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    color: black;
+    transition: 0.4s ease-in-out;
+}
+
+.testimonials-item:hover {
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px) scale(1.03); /* Hover effect */
+    box-shadow: 0 0 50px var(--main-color);
+}
+
+.testimonials-item h2 {
+    font-size: 2.8rem;
+}
+
+.testimonials-item p {
+    font-size: 1.3rem;
+}
+
+#star {
+    color: gold;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+    .wrapper {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for medium-large screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+
+    .testimonials-item {
+        min-height: 400px; /* Adjust min-height */
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 20px; /* Reduced padding */
+    }
+
+    .testimonials-item h2 {
+        font-size: 2rem; /* Adjust font size */
+    }
+
+    .testimonials-item p {
+        font-size: 1.1rem; /* Adjust font size */
+    }
+
+    .testimonials-box img {
+        width: 12rem; /* Adjust image size */
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-item {
+        min-height: 350px; /* Further reduced min-height */
+        padding: 10px; /* Further reduced padding */
+    }
+
+    .testimonials-item h2 {
+        font-size: 1.8rem; /* Further adjusted font size */
+    }
+
+    .testimonials-item p {
+        font-size: 1rem; /* Further adjusted font size */
+    }
+
+    .testimonials-box img {
+        width: 10rem; /* Further adjusted image size */
+    }
+}
+
+/* ====================================================================================================================*/
+.contact{
+    background-color: var(--bg-color);
+}
+.contact h2{
+    margin-bottom: 3rem;
+    color: black;
+}
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem auto;
+    text-align: center;
+}
+.contact form .iput-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.contact form .input-box input,
+.contact form textarea{
+    width: 100%;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--main-color);
+    background: var(--bg-color);
+    border-radius: 2rem;
+    border: 2px solid var(--main-color);
+    margin: 1.5rem;
+    resize: none;
+}
+.contact form .btn{
+    margin-top: 2rem;
+}
+
+/*======================================================================*/
+
+#section__footer {
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    border-top: solid .7px rgba(85, 41, 41, 0.1);
+    padding-left: 15vh;
+    padding-right: 15vh; /* Added padding-right for consistency */
+    box-sizing: border-box; /* Ensures padding and border are included in height */
+}
+
+.block__footer {
+    margin: 130px 30px;
+    flex: 1;
+}
+
+.footer-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.footer-description {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+#block__followMeBySocial {
+    display: flex;
+    margin-top: 2rem;
+}
+
+#block__followMeBySocial a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: .2rem solid black;
+    border-radius: 50%;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    color: black;
+    margin-right: 2rem;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+    #section__footer {
+        padding-left: 10vw; /* Reduced padding for medium-large screens */
+        padding-right: 10vw;
+    }
+
+    .block__footer {
+        margin: 80px 20px; /* Adjusted margin for medium-large screens */
+    }
+
+    .footer-title {
+        font-size: 14px; /* Adjusted font size */
+    }
+
+    .footer-description {
+        font-size: 13px; /* Adjusted font size */
+    }
+
+    #block__followMeBySocial a {
+        width: 2.5rem; /* Adjusted size */
+        height: 2.5rem; /* Adjusted size */
+        font-size: 1.5rem; /* Adjusted font size */
+        margin-right: 1.5rem; /* Adjusted margin */
+    }
+}
+
+@media (max-width: 768px) {
+    #section__footer {
+        flex-direction: column; /* Stack blocks vertically */
+        height: auto; /* Adjust height to content */
+        padding-left: 5vw; /* Further reduced padding */
+        padding-right: 5vw;
+    }
+
+    .block__footer {
+        margin: 50px 10px; /* Further adjusted margin */
+    }
+
+    .footer-title {
+        font-size: 12px; /* Further adjusted font size */
+    }
+
+    .footer-description {
+        font-size: 11px; /* Further adjusted font size */
+    }
+
+    #block__followMeBySocial {
+        margin-top: 1rem; /* Adjusted margin for smaller screens */
+    }
+
+    #block__followMeBySocial a {
+        width: 2rem; /* Further adjusted size */
+        height: 2rem; /* Further adjusted size */
+        font-size: 1.2rem; /* Further adjusted font size */
+        margin-right: 1rem; /* Further adjusted margin */
+    }
+}
+
+@media (max-width: 480px) {
+    #section__footer {
+        padding-left: 3vw; /* Minimal padding for small screens */
+        padding-right: 3vw;
+    }
+
+    .block__footer {
+        margin: 30px 5px; /* Further adjusted margin */
+    }
+
+    .footer-title {
+        font-size: 10px; /* Further adjusted font size */
+    }
+
+    .footer-description {
+        font-size: 9px; /* Further adjusted font size */
+    }
+
+    #block__followMeBySocial a {
+        width: 1.8rem; /* Small size for very small screens */
+        height: 1.8rem; /* Small size for very small screens */
+        font-size: 1rem; /* Small font size for very small screens */
+        margin-right: 0.5rem; /* Small margin */
+    }
+}
+
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    background: rgba(0, 76, 240, 0.568);
+    height: 8vh; /* Chiều cao bằng chiều cao của khung nhìn */
+}
+
+.container p {
+    font-size: 13px;
+    margin: 0; /* Đảm bảo không có margin mặc định */
+    text-align: center; /* Căn giữa nội dung trong phần tử <p> */
+}
+.sectionf{
+    min-height: 25vh;
+    padding: 10rem 12% 10rem;
+}
